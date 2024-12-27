@@ -1,0 +1,61 @@
+services:
+  appxxx:
+    image: 103.159.8.84:5050/mimos/my_digital_id_signet_server/app:latest
+    depends_on:
+      - signet_server
+    networks:
+      - default
+      - kong
+    environment:
+      SIGNET_HOSTNAME: "signet.server"
+      SIGNET_PORT: 55619
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-I", "http://127.0.0.1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  signet_grpc:
+    image: 103.159.8.84:5050/mimos/my_digital_id_signet_server/signet_grpc:latest
+    depends_on:
+      signet_server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-I", "http://127.0.0.1/health"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  signet_server:
+    image: 103.159.8.84:5050/mimos/my_digital_id_signet_server/signet_server:1.0.0
+    hostname: signet.server
+    volumes:
+      # - ./server_config.xml:/app/bin/server_config.xml
+      - ./logs:/app/logs/
+      # - ./keys:/app/bin/keys/
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin143
+      MYSQL_DATABASE: signet_server_db
+      MYSQL_USER: signet
+      MYSQL_PASSWORD: cara1q2w3e
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      # Copy the initialization script into the container
+      - ./database_schema.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  default:
+  kong:
+    external: true

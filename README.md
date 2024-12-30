@@ -49,16 +49,16 @@ project_root
 Follow these steps to create and prepare the required keystore files:
 ### Step 1: Run init_keys.sh
 
-    Navigate to your project directory.
-    Run the init_keys.sh script:
+Navigate to your project directory.
+Run the init_keys.sh script:
 
 ```shell
 ./init_keys.sh
 ```
 
-    The script will:
-        - Check for or create the keys directory.
-        - Use OpenSSL (native or via Docker) to generate an elliptic curve (EC) private key and a CSR.
+The script will:
+    - Check for or create the keys directory.
+    - Use OpenSSL (native or via Docker) to generate an elliptic curve (EC) private key and a CSR.
 
 ### Step 2: Request a Server Certificate
 

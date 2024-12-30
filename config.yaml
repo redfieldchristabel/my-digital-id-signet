@@ -1,8 +1,9 @@
+identifier: "REMOVE_ME"  # Please remove or modify this line before submitting.
 country: "US"
 state: "California"
 locality: "San Francisco"
 organization: "MyCompany"
 organizational_unit: "MyDepartment"
-# Please use a doamn name
+# Please use a doamn name, Common Name (CN) are meed to be real domain name
 common_name: "www.example.com"
 email_address: "email@example.com"

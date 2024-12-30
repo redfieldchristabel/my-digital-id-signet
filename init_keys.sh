@@ -84,6 +84,17 @@ else
     YQ_CMD="docker run --rm -v $(pwd)/../:/workdir mikefarah/yq"
 fi
 
+# Check for 'identifier' key in config.yaml
+IDENTIFIER=$($YQ_CMD eval '.identifier' config.yaml)
+
+if [ "$IDENTIFIER" == "REMOVE_ME" ]; then
+    echo "❌ You must remove or modify the 'identifier' key in the config.yaml file to continue."
+    echo "Please make sure you've edited the file properly and removed the placeholder."
+    exit 1
+else
+    echo "✅ 'identifier' key has been removed or modified. Proceeding..."
+fi
+
 # Read values from the YAML config file
 COUNTRY=$($YQ_CMD eval '.country' config.yaml)
 STATE=$($YQ_CMD eval '.state' config.yaml)

@@ -57,8 +57,8 @@ Run the init_keys.sh script:
 ```
 
 The script will:
-    - Check for or create the keys directory.
-    - Use OpenSSL (native or via Docker) to generate an elliptic curve (EC) private key and a CSR.
+- Check for or create the keys directory.
+- Use OpenSSL (native or via Docker) to generate an elliptic curve (EC) private key and a CSR.
 
 ### Step 2: Request a Server Certificate
 

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Chnage to the 'keys' directory"
+cd keys
+
 echo "==========================================="
 echo "         Step 4: Combine Files"
 echo "==========================================="

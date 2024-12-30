@@ -1,29 +1,33 @@
-identifier: "REMOVE_ME"  # Please remove or modify this line before submitting.
+identifier: REMOVE_ME
 
+# Use by init_keys.sh
 ssl_params:
   country: "MY"
   state: "Penang"
   locality: "Batu Feringgi"
-  organization: "YOur Company"
+  organization: "Your Company"
   organizational_unit: "Your Department"
   # Must be valid domain name. It critical for validation process
   common_name: "www.example.com"
   email_address: "email@example.com"
 
-
 server:
+  # Port for signet server, Dont cghange if you dont know
   port: 55619
   max_connection: 60
-  server_p12: "signetserver.jks"
+  server_p12: "keys/signetserver.jks"
+  # Use pin from finilize_keys.sh
   server_p12_pin: "your_pin_here"
   server_alias: "signetserver"
-  trusted_cert_store: "signetserver_trustedca.jks"
+  trusted_cert_store: "keys/signetserver_trustedca.jks"
+  # Use pin from finilize_keys.sh
   trusted_cert_store_pin: "your_pin_here"
   db:
     # Mostly mysql please dont chnage if you dont know
     type: "mysql"
     username: "signet"
-    password: "admin143"
+    # Choose better password
+    password: "change_me"
     # Mostly mysql please dont chnage if you dont know
     host: "mysql:3306"
     driver: "com.mysql.cj.jdbc.Driver"

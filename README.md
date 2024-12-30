@@ -6,16 +6,26 @@ This document outlines the steps to setup the required files for the MyDigital I
 
 Before starting, ensure the following prerequisites are met:
 
-- Latest Docker Version: Ensure Docker is installed and updated to the latest version at this time. Docker is required for running OpenSSL via the Alpine image if OpenSSL is not locally installed.
-- OpenSSL (Optional): Native OpenSSL is optional. If not available, the scripts will automatically use Docker's Alpine-based OpenSSL image.
-- Permissions: The scripts (init_keys.sh and finalize_keys.sh) must be granted executable permissions before use. This is necessary because Gist uploads do not retain executable file permissions.
+- **Latest Docker Version**  
+  Ensure Docker is installed and updated to the latest version. Docker is required for running tools like OpenSSL and `yq` via containerized images if they are not available locally.
 
-To grant the scripts executable permissions, run the following commands:
+- **OpenSSL (*Optional*)**  
+  *Native OpenSSL is optional.* If not available locally, the scripts will automatically use Docker's Alpine-based OpenSSL image to execute OpenSSL commands.
 
-```shell
-chmod +x init_keys.sh
-chmod +x finalize_keys.sh
-```
+- **`yq` (YAML Processor)**  
+  *Native `yq` is optional but highly recommended.* The script uses `yq` to process YAML files.  
+  - If `yq` is not installed, the script will default to using Docker's `mikefarah/yq` image to execute YAML operations.
+
+- **Permissions**  
+  To grant the scripts executable permissions, run the following commands:
+  ```shell
+  chmod +x init_keys.sh
+  chmod +x finalize_keys.sh
+  chmod +x populate_server_config.sh
+  ```
+
+
+
 
 ## Required Keystore Files
 
@@ -29,11 +39,28 @@ The MyDigital ID server requires the following keystore files:
 
 ## Project Structure
 
+Here’s how your project structure now look like:
+
+```shell
+project_root
+├── README.md <-- its me
+├── config.yaml
+├── docker-compose.yml
+├── init_keys.sh
+├── finilize_keys.sh
+└── populate_server_config.sh
+```
+
 Here’s how your project structure should look:
 
 ```shell
 project_root
+├── README.md <-- its me
+├── config.yaml
 ├── docker-compose.yml
+├── init_keys.sh
+├── finilize_keys.sh
+├── populate_server_config.sh
 ├── server-config.xml
 ├── keys
 │ ├── signetserver.key 

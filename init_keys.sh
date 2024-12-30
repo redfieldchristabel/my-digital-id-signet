@@ -113,28 +113,6 @@ fi
 # Construct the subject string
 SUBJ="/C=$COUNTRY/ST=$STATE/L=$LOCALITY/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$COMMON_NAME/emailAddress=$EMAIL"
 
-
-echo ""
-echo "==========================================="
-echo "     Step 0.6: Populate server_config.xml"
-echo "==========================================="
-echo ""
-
-# Run the populate_server_config.sh script to populate XML file
-if [ -f "populate_server_config.sh" ]; then
-    echo "ℹ️  Running 'populate_server_config.sh' to populate server_config.xml..."
-    ./populate_server_config.sh
-    if [ $? -eq 0 ]; then
-        echo "✅ 'server_config.xml' has been populated successfully."
-    else
-        echo "❌ There was an error in populating 'server_config.xml'. Exiting."
-        exit 1
-    fi
-else
-    echo "❌ 'populate_server_config.sh' script not found. Please ensure it's present in the current directory."
-    exit 1
-fi
-
 echo ""
 echo "==========================================="
 echo "    Step 1: Generate EC Private Key"

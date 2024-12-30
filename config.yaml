@@ -1,0 +1,8 @@
+country: "US"
+state: "California"
+locality: "San Francisco"
+organization: "MyCompany"
+organizational_unit: "MyDepartment"
+# Please use a doamn name
+common_name: "www.example.com"
+email_address: "email@example.com"

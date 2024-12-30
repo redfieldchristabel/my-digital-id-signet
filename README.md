@@ -62,12 +62,12 @@ The script will:
 
 ### Step 2: Request a Server Certificate
 
-    Send the generated signetserver.csr file to MyDigital ID Technical Support.
-    After receiving the certificate (signetserver.pem), place it in the keys directory.
+Send the generated signetserver.csr file to MyDigital ID Technical Support.
+After receiving the certificate (signetserver.pem), place it in the keys directory.
 
 ### Step 3: Run finalize_keys.sh
 
-    Execute the finalize_keys.sh script:
+Execute the finalize_keys.sh script:
 
 ```shell
 ./finalize_keys.sh
@@ -75,8 +75,8 @@ The script will:
 
 This script will:
 
-    - Combine signetserver.key and signetserver.pem into signetserver.p12.
-    - Convert signetserver.p12 to the PKCS12 format (signetserver.jks).
+- Combine signetserver.key and signetserver.pem into signetserver.p12.
+- Convert signetserver.p12 to the PKCS12 format (signetserver.jks).
 
 
 ## What the script do in detail

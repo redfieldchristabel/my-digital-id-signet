@@ -81,7 +81,7 @@ if command -v yq >/dev/null 2>&1; then
     YQ_CMD="yq"
 else
     echo "⚠️ 'yq' not found. Using Docker 'mikefarah/yq'."
-    YQ_CMD="docker run --rm -v $(pwd):/data mikefarah/yq"
+    YQ_CMD="docker run --rm -v $(pwd):/workdir mikefarah/yq"
 fi
 
 # Read values from the YAML config file

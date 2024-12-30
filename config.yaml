@@ -1,9 +1,34 @@
 identifier: "REMOVE_ME"  # Please remove or modify this line before submitting.
-country: "US"
-state: "California"
-locality: "San Francisco"
-organization: "MyCompany"
-organizational_unit: "MyDepartment"
-# Please use a doamn name, Common Name (CN) are meed to be real domain name
-common_name: "www.example.com"
-email_address: "email@example.com"
+
+ssl_params:
+  country: "MY"
+  state: "Penang"
+  locality: "Batu Feringgi"
+  organization: "YOur Company"
+  organizational_unit: "Your Department"
+  # Must be valid domain name. It critical for validation process
+  common_name: "www.example.com"
+  email_address: "email@example.com"
+
+
+server:
+  port: 55619
+  max_connection: 60
+  server_p12: "signetserver.jks"
+  server_p12_pin: "your_pin_here"
+  server_alias: "signetserver"
+  trusted_cert_store: "signetserver_trustedca.jks"
+  trusted_cert_store_pin: "your_pin_here"
+  db:
+    # Mostly mysql please dont chnage if you dont know
+    type: "mysql"
+    username: "signet"
+    password: "admin143"
+    # Mostly mysql please dont chnage if you dont know
+    host: "mysql:3306"
+    driver: "com.mysql.cj.jdbc.Driver"
+    name: "signet"
+    max_total_connection: 60
+    max_idle_connection: 30
+    idle_connection_timeout: 60000
+    connection_max_wait_timeout: 20000

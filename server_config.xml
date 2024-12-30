@@ -1,23 +1,22 @@
 <?xml version="1.0"?>
 <Server_Properties>
-        <Port>55619</Port>
-        <Max_Connection>60</Max_Connection>
-        <Server_P12>signetserver.jks</Server_P12>
-        <Server_P12_PIN>your pin here</Server_P12_PIN>
-        <Server_Alias>signetserver</Server_Alias>
-        <TrustedCertStore>signetserver_trustedca.jks</TrustedCertStore>
-        <TrustedCertStore_PIN>your pin here</TrustedCertStore_PIN>
-        <DB_Properties>
-                <DB_Type>mysql</DB_Type>
-                <DB_Username>signet</DB_Username>
-                <DB_Password>cara1q2w3e</DB_Password>
-                <DB_Host>mysql:3306</DB_Host>
-                <DB_Driver>com.mysql.cj.jdbc.Driver</DB_Driver>
-                <DB_Name>signet_server_db</DB_Name>
-                <DB_MaxTotalConnection>60</DB_MaxTotalConnection>
-                <DB_MaxIdleConnection>30</DB_MaxIdleConnection>
-                <DB_IdleConnectionTimeout>60000</DB_IdleConnectionTimeout>
-                <DB_ConnectionMaxWaitTimeout>20000</DB_ConnectionMaxWaitTimeout>
-        </DB_Properties>
-
+  <Port>55619</Port>
+  <Max_Connection>60</Max_Connection>
+  <Server_P12>signetserver.jks</Server_P12>
+  <Server_P12_PIN>your_pin_here</Server_P12_PIN>
+  <Server_Alias>signetserver</Server_Alias>
+  <TrustedCertStore>signetserver_trustedca.jks</TrustedCertStore>
+  <TrustedCertStore_PIN>your_pin_here</TrustedCertStore_PIN>
+  <DB_Properties>
+    <DB_Type>mysql</DB_Type>
+    <DB_Username>signet</DB_Username>
+    <DB_Password>admin143</DB_Password>
+    <DB_Host>mysql:3306</DB_Host>
+    <DB_Driver>com.mysql.cj.jdbc.Driver</DB_Driver>
+    <DB_Name>signet</DB_Name>
+    <DB_MaxTotalConnection>60</DB_MaxTotalConnection>
+    <DB_MaxIdleConnection>30</DB_MaxIdleConnection>
+    <DB_IdleConnectionTimeout>60000</DB_IdleConnectionTimeout>
+    <DB_ConnectionMaxWaitTimeout>20000</DB_ConnectionMaxWaitTimeout>
+  </DB_Properties>
 </Server_Properties>

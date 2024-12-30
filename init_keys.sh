@@ -96,13 +96,13 @@ else
 fi
 
 # Read values from the YAML config file
-COUNTRY=$($YQ_CMD eval '.country' config.yaml)
-STATE=$($YQ_CMD eval '.state' config.yaml)
-LOCALITY=$($YQ_CMD eval '.locality' config.yaml)
-ORGANIZATION=$($YQ_CMD eval '.organization' config.yaml)
-ORG_UNIT=$($YQ_CMD eval '.organizational_unit' config.yaml)
-COMMON_NAME=$($YQ_CMD eval '.common_name' config.yaml)
-EMAIL=$($YQ_CMD eval '.email_address' config.yaml)
+COUNTRY=$($YQ_CMD eval '.ssl_params.country' config.yaml)
+STATE=$($YQ_CMD eval '.ssl_params.state' config.yaml)
+LOCALITY=$($YQ_CMD eval '.ssl_params.locality' config.yaml)
+ORGANIZATION=$($YQ_CMD eval '.ssl_params.organization' config.yaml)
+ORG_UNIT=$($YQ_CMD eval '.ssl_params.organizational_unit' config.yaml)
+COMMON_NAME=$($YQ_CMD eval '.ssl_params.common_name' config.yaml)
+EMAIL=$($YQ_CMD eval '.ssl_params.email_address' config.yaml)
 
 # Ensure all required fields are populated
 if [ -z "$COUNTRY" ] || [ -z "$STATE" ] || [ -z "$LOCALITY" ] || [ -z "$ORGANIZATION" ] || [ -z "$ORG_UNIT" ] || [ -z "$COMMON_NAME" ] || [ -z "$EMAIL" ]; then
@@ -112,6 +112,28 @@ fi
 
 # Construct the subject string
 SUBJ="/C=$COUNTRY/ST=$STATE/L=$LOCALITY/O=$ORGANIZATION/OU=$ORG_UNIT/CN=$COMMON_NAME/emailAddress=$EMAIL"
+
+
+echo ""
+echo "==========================================="
+echo "     Step 0.6: Populate server_config.xml"
+echo "==========================================="
+echo ""
+
+# Run the populate_server_config.sh script to populate XML file
+if [ -f "populate_server_config.sh" ]; then
+    echo "ℹ️  Running 'populate_server_config.sh' to populate server_config.xml..."
+    ./populate_server_config.sh
+    if [ $? -eq 0 ]; then
+        echo "✅ 'server_config.xml' has been populated successfully."
+    else
+        echo "❌ There was an error in populating 'server_config.xml'. Exiting."
+        exit 1
+    fi
+else
+    echo "❌ 'populate_server_config.sh' script not found. Please ensure it's present in the current directory."
+    exit 1
+fi
 
 echo ""
 echo "==========================================="

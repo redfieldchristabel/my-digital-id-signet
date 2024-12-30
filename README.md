@@ -52,9 +52,9 @@ Follow these steps to create and prepare the required keystore files:
     Navigate to your project directory.
     Run the init_keys.sh script:
 
-    ```shell
-    ./init_keys.sh
-    ```
+```shell
+./init_keys.sh
+```
 
     The script will:
         - Check for or create the keys directory.

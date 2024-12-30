@@ -65,7 +65,7 @@ project_root
 ├── keys
 │ ├── signetserver.key 
 │ ├── signetserver.csr 
-│ ├── signetserver.pem 
+│ ├── signetserver.pem <-- from My Digital ID
 │ ├── signetserver.p12 
 │ ├── signetserver.jks
 | └── signetserver_trustedca.jks

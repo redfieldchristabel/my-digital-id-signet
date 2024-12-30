@@ -66,7 +66,7 @@ if command -v openssl >/dev/null 2>&1; then
     OPENSSL_CMD="openssl"
 else
     echo "⚠️  'openssl' not found. Using Docker 'alpine/openssl'."
-    OPENSSL_CMD="docker run --rm -v $(pwd):/data alpine/openssl"
+    OPENSSL_CMD="docker run --rm -v $(pwd)/../:/data alpine/openssl"
 fi
 
 echo ""

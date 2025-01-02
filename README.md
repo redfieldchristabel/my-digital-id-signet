@@ -36,9 +36,6 @@ The MyDigital ID server requires the following keystore files:
 
 ## Steps to Generate Keystores
 
-
-## Project Structure
-
 ### Installation
 
 ssh
@@ -50,6 +47,8 @@ https
 ```shell
 git clone https://github.com/redfieldchristabel/my-digital-id-signet.git 
 ```
+
+### Project Structure
 
 
 Here’s how your project structure now look like:

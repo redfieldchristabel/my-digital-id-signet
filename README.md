@@ -82,8 +82,10 @@ project_root
 │ ├── signetserver.jks
 | └── signetserver_trustedca.jks
 ```
+Your stucture will look like this after completing all the step below
 
-Follow these steps to create and prepare the required keystore files:
+
+## Follow these steps to create and prepare the required keystore files:
 ### Step 1: Run init_keys.sh
 
 Navigate to your project directory.

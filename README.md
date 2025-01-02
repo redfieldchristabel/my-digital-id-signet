@@ -39,6 +39,19 @@ The MyDigital ID server requires the following keystore files:
 
 ## Project Structure
 
+### Installation
+
+ssh
+```shell
+git clone git@github.com:redfieldchristabel/my-digital-id-signet.git 
+```
+
+https
+```shell
+git clone https://github.com/redfieldchristabel/my-digital-id-signet.git 
+```
+
+
 Here’s how your project structure now look like:
 
 ```shell
@@ -70,8 +83,6 @@ project_root
 │ ├── signetserver.jks
 | └── signetserver_trustedca.jks
 ```
-
-## Steps to Generate Keystores
 
 Follow these steps to create and prepare the required keystore files:
 ### Step 1: Run init_keys.sh
